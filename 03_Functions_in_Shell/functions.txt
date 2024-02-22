@@ -1,0 +1,81 @@
+Learn why and when we want to use functions?
+There is a concept in computer programming and software development called DRY
+DRY = Don't Repeat Yourself
+Functons allows us to write a block of code and use it many times.
+It reduces the script length
+Function is a block of reusable code that performs an action and returns an exit status or return code
+-> a Function must be defined before it is called.
+-> when you call a function you can pass data into that function
+-> you can access that data within your function as parameters
+-> There are two ways to create a function in shell script
+    1) The first way is to explicitly use a keyword function then follow it by a functions name and then a set of parenthesis next you will open a curly brace, The code or command that follow will be executed when the function is called. To end or close your your function use a closing curly brace.
+    2) The second one is also same as the first one except not using the word function in your declaration.
+    1) example
+        function function-name() {
+            #Code goes here.
+        }
+    2) example
+        function-name() {
+            #Your Code here
+        }
+
+to call or execite a function simply list its name on a line in the script.
+After you define a function it acts like any other command you can use in your shell script.
+***When calling a function in shell script do not use parentheses, you may have seen that style of using parenthesis in your function call.
+but that does't work in shell script.
+example:
+    #!/bin/bash
+    function hell() {
+        echo "Hello!"
+        ls
+        echo "'the above files are listed using a command in your function'"
+    }
+    hell
+
+-> Functions can call other functions 
+example:
+    #!/bin/bash
+    function hello() {
+        echo "Hello!"
+        now
+    }
+    function now() {
+        echo "its $(date +%r)
+    }
+
+    $ hello
+
+in this script  the hello function is declared then th now function is declared. Finally the hello function is called. 
+when hello function is called it prints hello on the screen and then called the now function which prints the current time to screen.
+You might think that the now function is defined the hello function and we said that the functions had to be declared before they are used.
+but we are calling the function after defining all the functions above.
+
+#!/bin/bash
+    function hello() {
+        echo "Hello!"
+        now
+    }
+    $ hello
+
+    function now() {
+        echo "its $(date +%r)
+    }
+-> The above script will fail as hello function is called before defining the now function.
+and this is main ppoint of scripting languages. They are not pre-compiled.
+-> It is the best practice to define all the functions on top of your scripts.
+-> This ensures that they are all defined before they are used.
+-> like shell scripts functions can accept parameters.
+-> We can also access the values of those passed in parameters using $1 $2 etc.
+-> we can even access all the parameters passed into the function using $@
+-> the only difference here is $0 is the name of the script itself.
+-> so you cant access the function using $0 but we never really want to do that anyway
+ example:
+#!/bin/bash
+function hello() {
+    echo "Hello $1 welcome to scripting" 
+}
+
+function all() {
+    for Name in $@
+        echo "Hello $Name"
+}

@@ -1,0 +1,48 @@
+->  A wildcard is a character or a string used to match file and directories.
+->  We can use wildcards to create search patterns that when expanded will return a list of matching files and directories.
+->  Sometimes wildcards are referred as globs or glob patterns, because globbing is the act of expanding a wildcards into the list os matching files and directories.
+->  Wild cards can be used in conjunction with most linux commands is a command accepts a file or directory as an argument then we can use a wildcard in this argument to specy a set of files.
+->  Mostly Wildcards are used with 
+    - ls
+    - rm
+    - cp 
+
+***Two main wildcards***
+________________________ 
+
+1) *
+2) ?
+
+* -: matches zero or more characters. 
+    eg: *.txt, a*, a*.txt
+? -: matches exactly one character.
+    eg: ?.txt, a?, a?.txt
+
+other wildcard
+--------------
+[] - A character class:
+Matches any of the characters inclded between the brackets. Matches exactly one character.
+    eg: [aeiou], 
+        ca[nt]* => can, cat, candy, catch
+
+we can used this to create very specific search patterns, start with square bracket then list one or more characters we want to match and then end with the right bracket.
+
+[!] - exclude characters using match wildcard:
+[!] Matches any of the characters NOT included between the brackets. Matches exactly one character.
+eg: [!aeiou]* => baseball, cricket
+
+[_-_] - Range Match wildcard
+Use two characters separated by a hyphen to create a range in a character class.
+[a-g]*
+    - Matches all files that start with a,b,c,d,e,f,g.
+[3-6]*
+    - Matches all files that start with 3,4,5 or 6.
+
+[[::]] - Named character classes
+Instead of using own ranges we can use predefined named character classes
+[[:alpha:]]
+[[:alnum:]]
+[[:digit:]]
+[[:lower:]]
+[[:space:]]
+[[:upper:]]
