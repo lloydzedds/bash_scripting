@@ -77,5 +77,57 @@ function hello() {
 
 function all() {
     for Name in $@
+    do
         echo "Hello $Name"
+    done
 }
+
+****Variables in functions****
+______________________________
+Global variables:-  By default variables are global, 
+Variables has to be defined before used.
+if the global variable is defined inside a function it is not available outside of that function untill that function is called or executed.
+example 
+
+Valid:-
+-------
+GLOBAL_VAR=1
+# GLOBAL_VAR is available 
+# in the function
+my_function
+
+Invalid:-
+---------
+# GLOBAL_VAR is available 
+# in the function
+my_function
+GLOBAL_VAR=1
+
+available only after execution of function:-
+--------------------------------------------
+my_function() {
+    GLOBAL_VAR=1
+}
+# GLOBAL_VAR not available yet.
+echo $GLOBAL_VAR
+my_function
+# GLOBAL_VAR is now available.
+echo $GLOBAL_VAR
+
+
+2) Local Variables -: A local variable is a variable that can only accessed with in a function in which it was declared.
+-> To define a local variable use the local keyword before the variable name
+-> and only use the local keyword at the first time the variable is used
+-> Note that the local keyword can only be used inside a function, Its a best practice to use local variables in functions.
+
+Functions are shell scripts within a shell script
+Just like a shell script the function has a exit status which is sometimes called a return code.
+the exit status can be explicitly set by using a return statement and following it with the status you would like to return,
+if no return statement is used then the exit status of the fuction is the exit status of last command executed in that function
+The return statements onlyaccepts a number and its only integers between 0 and 255
+the exit status of 0 signifies the successful copmpletion of a command or a function
+A non zero exit status indicates some type of error
+to access the exit status of a function use $? at the end of a function
+syntax:- 
+my_function
+echo $?

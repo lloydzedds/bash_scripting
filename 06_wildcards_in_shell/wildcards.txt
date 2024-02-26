@@ -46,3 +46,17 @@ Instead of using own ranges we can use predefined named character classes
 [[:lower:]]
 [[:space:]]
 [[:upper:]]
+these named character classes represent the most commonly used ranges
+alpha matches alphabetic letters both upper and lower case letters
+alnum matches alphanumeric letters this means it matches alpha and digits
+digit represents digits from 0-9
+Space matches spaces like tabs and new lines as well
+
+how to match wildcard characters?
+we need to use escape character(\) if we want to use or match a wild card character
+to matches all files ending with question mark
+*\?
+    done?
+If you want to make like easier don't name your file with ? or *.
+
+
