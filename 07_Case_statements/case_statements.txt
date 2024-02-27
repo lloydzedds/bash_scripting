@@ -1,0 +1,33 @@
+Learn when to use the case statement and how to do it.
+- If we have to use an if statement to compare the same variable against different values you will use a case statement in its place.
+- For these situations case statements is easier to read.
+-  common use of case statement is in system startup scripts for example 
+
+#!/bin/bash
+case "$VAR" in
+    pattern_1)
+        # Commands go here.
+        ;;
+    pattern_N)
+        # Commands go here.
+        ;;
+esac
+
+case statements are case sensitive , we can modify script to avoid human errors like misplacing uppercase and lower case alphabets usind WILDCARDS
+All the rules for wild cards are eligible and it is in play for the pattern matching section of the case statement.
+Lets build a script which accepts input from user and use character class wildcard to avoid human error from their input.
+
+#!/bin/bash
+read -p "Enter y ot n: " ANSWER
+case "ANSWER" in
+    [yY]|[yY][eE][sS])
+        echo "You have answered yes."
+        ;;
+    [nN]|[nN][oO])
+        echo "You answered no."
+        ;;
+    *)
+        echo "Invalid Answer"
+        ;;
+esac
+
