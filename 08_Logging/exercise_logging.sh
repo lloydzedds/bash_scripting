@@ -14,3 +14,5 @@ function logging() {
 TEST || logging "Invalid Command"
 ls | logging
 ls && logging "ls command executed successfully"
+tail -n 5 /var/log/syslog
+log show --predicate "eventMessage contains '${RANDOM}'" --last 10m --info

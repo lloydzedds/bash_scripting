@@ -35,7 +35,7 @@ fi
 
 if [ -w /etc/passwd ]
 then
-        echo "You have write permision to passwd"
+    echo "You have write permision to passwd"
 else
 	echo "You Dont have permissions to passwd"
 fi
@@ -48,11 +48,9 @@ done
 read -p "Enter the name of a file: " GFNFD
 echo "given file name for description: $GFNFD"
 ls -al $GFNFD 
-if [ -f "$GFNFD" ]
-then
+if [ -f "$GFNFD" ]; then
 	echo "$GFNFD is a regular file"
-elif [ -d "$GFNFD" ]
-then
+elif [ -d "$GFNFD" ]; then
 	echo "$GFNFD is a directory"
 else
 	echo "$GFNFD is another type of file"
