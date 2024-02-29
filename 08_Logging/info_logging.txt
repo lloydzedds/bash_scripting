@@ -1,2 +1,0 @@
-In this lesson we will Learn
-- Why we may want to use logging
