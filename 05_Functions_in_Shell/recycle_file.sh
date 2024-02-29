@@ -2,9 +2,21 @@
 # syntax to use thi sript :- scrpit_name.sh filename.ext
 # for example: recycle_file  test.txt
 # or simply you can run this script ./script_name.sh i.e recycle_file.sh
+Linux_Recycle=/mnt/c/Users/MuhammedAhmedSIDGlob/Documents/recycle
+if [ -d "$Linux_Recycle" ]; then
+    echo "listing files in Linux recycle bin"
+    echo "----------------------------------"
+    ls $Linux_Recycle
+else
+    mkdir -p /mnt/c/Users/MuhammedAhmedSIDGlob/Documents/recycle/
+fi
 
 function wsl_recycle() {
     if [ -z "$1" ]; then
+        echo " "
+        echo "listing files incurrent directory"
+        echo "_________________________________"
+        ls
         read -p "Which file you want to delete: " FILENAME
         if [ -f "$FILENAME" ]; then
             RECYCLEE="/mnt/c/Users/MuhammedAhmedSIDGlob/Documents/recycle/$FILENAME.$(date +%F).$$"
@@ -22,7 +34,9 @@ function wsl_recycle() {
     fi
 }
 wsl_recycle $1 
-if [ $? -eq 0 ] # $? gives the exit status of the last command
+if [ -z $1 ]; then
+    echo "You have not entered any file name"
+elif [ $? -eq 0 ] # $? gives the exit status of the last command
 then
     echo "file $1 deletion completed"
 else

@@ -5,7 +5,7 @@ Example:
     [ -e /etc/passwd]
 
 File Operators 
--d FILENAME = True if file is a directory
+-d FILENAME = True if it is a directory
 -e FILENAME = True if file exists
 -f FILENAME = True if file exists a regular file
 -r FILENAME = True if file is a readable by you
