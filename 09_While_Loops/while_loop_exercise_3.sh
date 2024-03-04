@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Exercise 3: Write a shell script that that allows a user to select an action from the menu. The actions are to show the disk usage, show the uptime on the system, and show the users that are logged into the system. Tell the user to enter q to quit. Display "Goodbye!" just before the script exits.
 # If the user enters anything other than 1,2,3,or q,tell them that it is an "Invalid option."
