@@ -133,7 +133,7 @@ o	$ sed /# User/, /^$/ s/run/execute’ config
 -	Now we get the point we could specify a large portion of the file if we wanted to.
 -	One starting point to another starting point as your address and then change everything else alone.
 -	It is very powerful to user addresses with sed.
-In this lesson
+In this lesson:
 -	We have learned the most common use case of sed which is to perform text substitutions we learned how to replace specific occurrences as well as how to replace all occurrences of the search pattern.
 -	In addition to finding and replacing text we learned how to delete text with the d command.
 -	From there we have learned how to save the alterations performed by sed as well as how to make backups of the original file so that your date is safe.
